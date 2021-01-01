@@ -1,6 +1,11 @@
 {
   "name": "codebility",
   "version": "0.0.0",
+  "author": {
+    "name": "Rajkumar Ponnusamy",
+    "email": "rajkumar.ponnusamy6095@gmail.com",
+    "url": "https://github.com/rajkumar-ponnusamy6095/codebility"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

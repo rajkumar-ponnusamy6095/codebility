@@ -8,9 +8,8 @@ describe('InternetErrorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InternetErrorComponent ]
-    })
-    .compileComponents();
+      declarations: [InternetErrorComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

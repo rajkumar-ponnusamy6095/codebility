@@ -31,17 +31,19 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login() {
     this.isLoading = true;
-    this.authenticationService.login(this.loginForm.value)
-      .subscribe(
-        (credentials) => {
-          console.log("response received: ",credentials)
-          this.router.navigate([this.route.snapshot.queryParams.redirect || '/'], { replaceUrl: true });
-        },
-        (error) => {
-          console.log("error received: ",error);          
-          this.error = error;
-        }
-      );
+    this.authenticationService.login(this.loginForm.value).subscribe(
+      (credentials) => {
+        console.log('response received: ', credentials);
+        this.router.navigate(
+          [this.route.snapshot.queryParams.redirect || '/'],
+          { replaceUrl: true }
+        );
+      },
+      (error) => {
+        console.log('error received: ', error);
+        this.error = error;
+      }
+    );
   }
 
   private createForm() {

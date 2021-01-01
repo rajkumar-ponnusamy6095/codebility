@@ -7,8 +7,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material.module';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [HomeComponent],
   imports: [
@@ -18,7 +16,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MaterialModule    
-  ]
+    MaterialModule,
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

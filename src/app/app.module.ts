@@ -14,29 +14,26 @@ import { ServerErrorComponent } from './server-error/server-error.component';
 import { InternetErrorComponent } from './internet-error/internet-error.component';
 import { CoreModule } from './core/core.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
     ServerErrorComponent,
-    InternetErrorComponent
+    InternetErrorComponent,
   ],
   imports: [
-    BrowserModule,    
-    MaterialModule, 
+    BrowserModule,
+    MaterialModule,
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FlexLayoutModule, 
+    FlexLayoutModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [
-      
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

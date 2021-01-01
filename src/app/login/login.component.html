@@ -1,51 +1,83 @@
-<div fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="mat-typography">
-   
-    <div class="login-container" fxLayout="row" fxLayoutAlign="center">
-      
-      <mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="33%" class="login-box">
-        <div>
-          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
-            <img src="../../assets/codebility.jpeg" width="100px" height="100px" />
-          </div>
+<div
+  fxFill
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="1.5rem"
+  class="mat-typography"
+>
+  <div class="login-container" fxLayout="row" fxLayoutAlign="center">
+    <mat-card
+      fxFlex="90%"
+      fxFlex.sm="66%"
+      fxFlex.md="50%"
+      fxFlex.gt-md="33%"
+      class="login-box"
+    >
+      <div>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
+          <img
+            src="../../assets/codebility.jpeg"
+            width="100px"
+            height="100px"
+          />
         </div>
-        <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
-          <div class="login-error" [hidden]="!error || isLoading">email or password incorrect.</div>
+      </div>
+      <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+        <div class="login-error" [hidden]="!error || isLoading">
+          email or password incorrect.
+        </div>
+        <br />
+        <div class="login-fields" fxLayout="column">
+          <mat-form-field [hideRequiredMarker]="true" appearance="outline">
+            <input
+              type="text"
+              matInput
+              formControlName="email"
+              autocomplete="email"
+              [placeholder]="'email'"
+              required
+            />
+            <mat-error
+              *ngIf="
+                loginForm.controls.email.invalid &&
+                loginForm.controls.email.touched
+              "
+            >
+              <span>email is required</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field [hideRequiredMarker]="true" appearance="outline">
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              autocomplete="current-password"
+              [placeholder]="'Password'"
+              required
+            />
+            <mat-error
+              *ngIf="
+                loginForm.controls.password.invalid &&
+                loginForm.controls.password.touched
+              "
+            >
+              <span>Password is required</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-slide-toggle color="primary" formControlName="remember"
+            >Remember me</mat-slide-toggle
+          >
           <br />
-          <div class="login-fields" fxLayout="column">
-            <mat-form-field [hideRequiredMarker]="true" appearance="outline">
-              <input
-                type="text"
-                matInput
-                formControlName="email"
-                autocomplete="email"
-                [placeholder]="'email'"
-                required
-              />
-              <mat-error *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
-                <span>email is required</span>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field [hideRequiredMarker]="true" appearance="outline">
-              <input
-                type="password"
-                matInput
-                formControlName="password"
-                autocomplete="current-password"
-                [placeholder]="'Password'"
-                required
-              />
-              <mat-error *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
-                <span>Password is required</span>
-              </mat-error>
-            </mat-form-field>
-            <mat-slide-toggle color="primary" formControlName="remember">Remember me</mat-slide-toggle>
-            <br />
-            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || isLoading">            
-              <span>Login</span>
-            </button>
-          </div>
-        </form>
-      </mat-card>
-    </div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="loginForm.invalid || isLoading"
+          >
+            <span>Login</span>
+          </button>
+        </div>
+      </form>
+    </mat-card>
   </div>
-  
+</div>

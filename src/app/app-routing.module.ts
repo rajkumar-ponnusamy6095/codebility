@@ -9,30 +9,30 @@ import { ServerErrorComponent } from './server-error/server-error.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'server-error',
-    component: ServerErrorComponent
+    component: ServerErrorComponent,
   },
   {
     path: 'internet-error',
-    component: InternetErrorComponent
+    component: InternetErrorComponent,
   },
   {
     path: '',
-    // canActivate: [AuthenticationGuard],    
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule)
+    // canActivate: [AuthenticationGuard],
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '**',
-    component: PageNotFoundComponent
+    component: PageNotFoundComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { InternetErrorComponent } from './internet-error/internet-error.component';
+import { CoreModule } from './core/core.module';
+
 
 @NgModule({
   declarations: [
@@ -22,16 +24,19 @@ import { InternetErrorComponent } from './internet-error/internet-error.componen
     InternetErrorComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    BrowserModule,    
     MaterialModule, 
+    CoreModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     FlexLayoutModule, 
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+      
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

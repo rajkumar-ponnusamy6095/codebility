@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationGuard } from './core/authentication.guard';
+import { InternetErrorComponent } from './internet-error/internet-error.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'server-error',
     component: ServerErrorComponent
+  },
+  {
+    path: 'internet-error',
+    component: InternetErrorComponent
   },
   {
     path: '',

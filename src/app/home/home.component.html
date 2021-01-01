@@ -8,23 +8,9 @@
         ngClass.gt-sm="has-border"
       >
         <mat-toolbar color="primary">
-          <span>Codebility</span>
-          <div fxFlex></div>
-          <div>
-            <button mat-icon-button [matMenuTriggerFor]="userMenu">
-              <mat-icon>person</mat-icon>
-            </button>
-            <mat-menu #userMenu="matMenu">
-              <mat-list>
-                <mat-list-item>
-                  <span>Logged in as</span>&nbsp;<b>{{ username }}</b>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-              </mat-list>
-              <button mat-menu-item (click)="logout()">Logout</button>
-            </mat-menu>
-          </div>
-          
+          <div fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem">
+            <img src="../../assets/codebility.jpeg" width="60px" height="60px"/>
+          </div>       
         </mat-toolbar>
         <nav>
           <mat-list>
@@ -45,6 +31,20 @@
           <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
             <mat-icon>menu</mat-icon>
           </button>
+          <div>
+            <button mat-icon-button [matMenuTriggerFor]="userMenu">
+              <mat-icon>person</mat-icon>
+            </button>
+            <mat-menu #userMenu="matMenu">
+              <mat-list>
+                <mat-list-item>
+                  <span>Logged in as</span>&nbsp;<b>{{ username }}</b>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+              </mat-list>
+              <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+          </div>
         </mat-toolbar>
         <router-outlet></router-outlet>
       </mat-sidenav-content>

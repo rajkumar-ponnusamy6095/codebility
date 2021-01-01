@@ -24,6 +24,9 @@ export class UsersComponent implements OnInit {
   };
   usersList: any[] = [];
   displayedColumns: string[] = ['name', 'email', 'city','phone'];
+  totalLength: number = 50; 
+  pageSizeOptions = [5, 10, 25, 100];
+  pageSize = 5;
 
   constructor(
     private usersService: UsersService
@@ -38,6 +41,13 @@ export class UsersComponent implements OnInit {
       this.usersList = res;
       console.log("usersList: ",this.usersList);
     })
+  }
+
+  onPageChanged(e) {
+    console.log("e: ",e);
+    this.pageParams.page = e.pageIndex + 1;
+    this.pageParams.limit = e.pageSize;
+    this.getUsersList();
   }
 
 }

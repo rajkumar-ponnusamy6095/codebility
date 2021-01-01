@@ -3,9 +3,12 @@ import { UsersService } from './users.service';
 
 
 export class PageParams {
+  sortBy: string;
+  order: string;
+  limit: number;
+  page: number;
   search: string;
-  sort: string;
-  limit: number
+  filter: string
 }
 
 @Component({
@@ -16,10 +19,11 @@ export class PageParams {
 export class UsersComponent implements OnInit {
 
   pageParams: Partial<PageParams> = {
+    page: 1,
     limit: 5
   };
   usersList: any[] = [];
-  displayedColumns: string[] = ['name', 'email', 'company','phone'];
+  displayedColumns: string[] = ['name', 'email', 'city','phone'];
 
   constructor(
     private usersService: UsersService

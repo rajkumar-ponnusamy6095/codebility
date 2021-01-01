@@ -6,18 +6,19 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 
+
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: 'server-error',
-    component: ServerErrorComponent,
+    component: ServerErrorComponent
   },
   {
     path: 'internet-error',
-    component: InternetErrorComponent,
+    component: InternetErrorComponent
   },
   {
     path: '',
@@ -27,7 +28,7 @@ const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: '**',
-    component: PageNotFoundComponent,
+    component: PageNotFoundComponent
   },
 ];
 

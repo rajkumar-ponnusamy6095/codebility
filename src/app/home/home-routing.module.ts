@@ -6,7 +6,16 @@ const homeRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children: [],
+    children: [
+      {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then((u) => u.UsersModule),
+      },
+      {
+        path: '',
+        redirectTo: 'users'
+      }
+    ],
   },
 ];
 

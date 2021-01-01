@@ -6,8 +6,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
 
-
-
 @NgModule({
   declarations: [UsersComponent],
   imports: [
@@ -16,7 +14,7 @@ import { MaterialModule } from 'src/app/material.module';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    UserRoutingModule
-  ]
+    UserRoutingModule,
+  ],
 })
-export class UsersModule { }
+export class UsersModule {}

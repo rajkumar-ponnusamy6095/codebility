@@ -1,63 +1,74 @@
 <div class="container">
-    <h2>Users</h2>
-    <div class="table-container">
-      <div>
-        <mat-form-field appearance="outline">
-          <input #userSearchInput matInput placeholder="Filter">
-        </mat-form-field>
-      </div>
-        <mat-table #table [dataSource]="usersList" matSort (matSortChange)="sortData($event)">
-
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-        
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-              <mat-cell *matCellDef="let element"> 
-                <span class="mobile-label">Name:</span>
-                {{element.name}} 
-              </mat-cell>
-            </ng-container>
-        
-            <!-- Email Column -->
-            <ng-container matColumnDef="email">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-              <mat-cell *matCellDef="let element"> 
-                <span class="mobile-label">Email:</span>
-                {{element.email}} 
-              </mat-cell>
-            </ng-container>
-
-            <!-- Company Column -->
-            <ng-container matColumnDef="city">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
-                <mat-cell *matCellDef="let element"> 
-                  <span class="mobile-label">City:</span>
-                  {{element.city}} 
-                </mat-cell>
-              </ng-container>
-        
-            <!-- Phone No Column -->
-            <ng-container matColumnDef="phone">
-              <mat-header-cell *matHeaderCellDef> Phone No </mat-header-cell>
-              <mat-cell *matCellDef="let element"> 
-                <span class="mobile-label">Phone No:</span>
-                {{element.phone}}  
-              </mat-cell>
-            </ng-container>           
-        
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-          </mat-table>
-
-          <!-- Paginator-->
-
-          <mat-paginator [length]="totalLength"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="onPageChanged($event)">
-          </mat-paginator>
-
+  <h2>Users</h2>
+  <div class="table-container">
+    <div>
+      <mat-form-field appearance="outline">
+        <input #userSearchInput matInput placeholder="Filter" />
+      </mat-form-field>
     </div>
+    <mat-table
+      #table
+      [dataSource]="usersList"
+      matSort
+      (matSortChange)="sortData($event)"
+    >
+      <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span class="mobile-label">Name:</span>
+          {{ element.name }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Email
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span class="mobile-label">Email:</span>
+          {{ element.email }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Company Column -->
+      <ng-container matColumnDef="city">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          City
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span class="mobile-label">City:</span>
+          {{ element.city }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Phone No Column -->
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef> Phone No </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span class="mobile-label">Phone No:</span>
+          {{ element.phone }}
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+    <!-- Paginator-->
+
+    <mat-paginator
+      [length]="totalLength"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageChanged($event)"
+    >
+    </mat-paginator>
+  </div>
 </div>

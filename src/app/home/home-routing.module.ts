@@ -9,12 +9,13 @@ const homeRoutes: Routes = [
     children: [
       {
         path: 'users',
-        loadChildren: () => import('./users/users.module').then((u) => u.UsersModule),
+        loadChildren: () =>
+          import('./users/users.module').then((u) => u.UsersModule),
       },
       {
         path: '',
-        redirectTo: 'users'
-      }
+        redirectTo: 'users',
+      },
     ],
   },
 ];

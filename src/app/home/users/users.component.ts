@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UsersService } from './users.service';
-
+import {
+  debounceTime,
+  map,
+  distinctUntilChanged,
+  filter
+} from "rxjs/operators";
+import { fromEvent } from 'rxjs';
 
 export class PageParams {
   sortBy: string;
@@ -22,6 +28,7 @@ export class UsersComponent implements OnInit {
     page: 1,
     limit: 5
   };
+  @ViewChild('userSearchInput', { static: true }) userSearchInput: ElementRef;
   usersList: any[] = [];
   displayedColumns: string[] = ['name', 'email', 'city','phone'];
   totalLength: number = 50; 
@@ -34,6 +41,23 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsersList();
+
+    fromEvent(this.userSearchInput.nativeElement, 'keyup').pipe(
+
+      // get value
+      map((event: any) => {
+        return event.target.value;
+      })
+      // Time in milliseconds between key events
+      , debounceTime(1000)
+      // If previous query is diffent from current   
+      , distinctUntilChanged()
+      // subscription for response
+    ).subscribe((text: string) => {
+      console.log("text: ",text)
+      this.pageParams.search = text;
+      this.getUsersList();
+    })
   }
 
   getUsersList() {
@@ -50,4 +74,17 @@ export class UsersComponent implements OnInit {
     this.getUsersList();
   }
 
+  sortData(e) {
+    console.log("e: ",e);
+    if(e.direction == "") {
+      delete(this.pageParams.sortBy);
+      delete(this.pageParams.order);
+    } else {
+    this.pageParams.sortBy = e.active;
+    this.pageParams.order = e.direction;
+    }
+    this.getUsersList();
+  }
+
+  
 }

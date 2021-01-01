@@ -1,14 +1,19 @@
 <div class="container">
     <h2>Users</h2>
     <div class="table-container">
-        <mat-table #table [dataSource]="usersList">
+      <div>
+        <mat-form-field appearance="outline">
+          <input #userSearchInput matInput placeholder="Filter">
+        </mat-form-field>
+      </div>
+        <mat-table #table [dataSource]="usersList" matSort (matSortChange)="sortData($event)">
 
             <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
         
             <!-- Name Column -->
             <ng-container matColumnDef="name">
-              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
               <mat-cell *matCellDef="let element"> 
                 <span class="mobile-label">Name:</span>
                 {{element.name}} 
@@ -17,7 +22,7 @@
         
             <!-- Email Column -->
             <ng-container matColumnDef="email">
-              <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
               <mat-cell *matCellDef="let element"> 
                 <span class="mobile-label">Email:</span>
                 {{element.email}} 
@@ -26,7 +31,7 @@
 
             <!-- Company Column -->
             <ng-container matColumnDef="city">
-                <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
                 <mat-cell *matCellDef="let element"> 
                   <span class="mobile-label">City:</span>
                   {{element.city}} 

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   version: '0.0.1',
-  serverUrl: 'http://localhost:5220/api/v1',
+  serverUrl: 'https://jsonplaceholder.typicode.com'
 };
 
 /*

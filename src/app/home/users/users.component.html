@@ -1,1 +1,49 @@
-<p>users works!</p>
+<div class="container">
+    <h2>Users</h2>
+    <div class="table-container">
+        <mat-table #table [dataSource]="usersList">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                <span class="mobile-label">Name:</span>
+                {{element.name}} 
+              </mat-cell>
+            </ng-container>
+        
+            <!-- Email Column -->
+            <ng-container matColumnDef="email">
+              <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                <span class="mobile-label">Email:</span>
+                {{element.email}} 
+              </mat-cell>
+            </ng-container>
+
+            <!-- Company Column -->
+            <ng-container matColumnDef="company">
+                <mat-header-cell *matHeaderCellDef> Company </mat-header-cell>
+                <mat-cell *matCellDef="let element"> 
+                  <span class="mobile-label">Company:</span>
+                  {{element.company.name}} 
+                </mat-cell>
+              </ng-container>
+        
+            <!-- Phone No Column -->
+            <ng-container matColumnDef="phone">
+              <mat-header-cell *matHeaderCellDef> Phone No </mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                <span class="mobile-label">Phone No:</span>
+                {{element.phone}}  
+              </mat-cell>
+            </ng-container>           
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+    </div>
+</div>

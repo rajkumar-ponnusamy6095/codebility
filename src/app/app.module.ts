@@ -13,6 +13,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ServerErrorComponent } from './server-error/server-error.component';
 import { InternetErrorComponent } from './internet-error/internet-error.component';
 import { CoreModule } from './core/core.module';
+import { RegisterComponent } from './register/register.component';
+import { VerifyComponent } from './verify/verify.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,10 @@ import { CoreModule } from './core/core.module';
     PageNotFoundComponent,
     ServerErrorComponent,
     InternetErrorComponent,
+    RegisterComponent,
+    VerifyComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

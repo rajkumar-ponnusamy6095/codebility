@@ -20,7 +20,7 @@ export class UsersService {
 
   getUsersList(params) {
     const httpParams = this.getHttpParams(params);
-    return this.http.get(`/users`, {
+    return this.http.get(`/accounts`, {
       params: httpParams,
     });
   }

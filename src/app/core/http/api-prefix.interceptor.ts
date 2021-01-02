@@ -28,7 +28,7 @@ export class ApiPrefixInterceptor implements HttpInterceptor {
         request = request.clone({
           url: environment.serverUrl + request.url,
           setHeaders: {
-            Authorization: token.token,
+            Authorization: `Bearer ${token.token}`,
           },
         });
         console.log('REQUEST with auth: ', request);

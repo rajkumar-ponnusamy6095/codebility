@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
   };
   @ViewChild('userSearchInput', { static: true }) userSearchInput: ElementRef;
   usersList: any[] = [];
-  displayedColumns: string[] = ['name', 'email', 'city', 'phone'];
+  displayedColumns: string[] = ['name', 'email', 'role'];
   totalLength: number = 50;
   pageSizeOptions = [5, 10, 25, 100];
   pageSize = 5;

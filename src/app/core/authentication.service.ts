@@ -34,11 +34,11 @@ export class AuthenticationService {
       email: context.email,
       password: context.password,
     };
-    return this.http.post(`/users/login`, data).pipe(
+    return this.http.post(`/accounts/authenticate`, data).pipe(
       map((res: any) => {
         let userData = {
           email: context.email,
-          token: res,
+          token: res.jwtToken,
         };
         console.log('RES: ', res);
         this.credentialsService.setCredentials(userData, context.remember);

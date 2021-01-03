@@ -1,0 +1,50 @@
+:host {
+    // display: flex;
+    // flex: 1;
+    background-color: #f5f5f5;  
+  }
+  
+  .inline-loader {
+    display: inline-block;
+  }
+  
+  .register-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000;
+    height: 50px;
+  }
+  
+  .version {
+    margin: 0;
+  }
+  
+  .register-container,
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .register-fields > :not(:last-child) {
+    margin-bottom: 8px;
+  }
+  
+  .register-error {
+    color: red;
+  }
+  
+  .register-box {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  ::ng-deep .register-form-field.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.8em 0 !important;
+  }
+  
+ .register-container {
+     padding: 50px 0px;
+ }
+
+ .register-btn {
+     width: 100%;
+ }

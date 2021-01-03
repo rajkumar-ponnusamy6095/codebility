@@ -1,1 +1,119 @@
-<p>register works!</p>
+<div style="height: 100%;">
+    <mat-toolbar color="primary" class="register-toolbar"></mat-toolbar>
+
+    <!-- <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="top-level-container"> -->
+        <!-- <div style="width: 100%;">
+<mat-toolbar color="primary" class="register-toolbar"></mat-toolbar>
+</div> -->
+        <div class="register-container" fxLayout="row" fxLayoutAlign="center">
+            <mat-card fxFlex="90%" fxFlex.sm="66%" fxFlex.md="50%" fxFlex.gt-md="50%" class="register-box">
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
+                        <img src="../../assets/codebility.jpeg" width="100px" height="100px" />
+                    </div>
+                </div>
+                <form (ngSubmit)="register()" [formGroup]="registerForm" novalidate>
+                    <div class="register-error" [hidden]="!error || isLoading">
+                        email or password incorrect.
+                    </div>
+                    <br />
+                    <div class="register-fields">
+
+                        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                            <mat-form-field [hideRequiredMarker]="true" appearance="outline"
+                                class="register-form-field">
+                                <input type="text" autocomplete="off" matInput formControlName="firstName" [placeholder]="'First Name'"
+                                    required />
+                                <mat-error *ngIf="
+                registerForm.controls.firstName.invalid &&
+                registerForm.controls.firstName.touched
+              ">
+                                    <span>First Name is required</span>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field [hideRequiredMarker]="true" appearance="outline"
+                                class="register-form-field">
+                                <input type="text" autocomplete="off" matInput formControlName="lastName" [placeholder]="'Last Name'"
+                                    required />
+                                <mat-error *ngIf="
+                registerForm.controls.lastName.invalid &&
+                registerForm.controls.lastName.touched
+              ">
+                                    <span>Last Name is required</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                        <mat-form-field [hideRequiredMarker]="true" appearance="outline" class="register-form-field">
+                            <input type="text" matInput formControlName="gender"
+                                [placeholder]="'Gender'" required />
+                            <mat-error *ngIf="
+              registerForm.controls.gender.invalid &&
+              registerForm.controls.gender.touched
+            ">
+                                <span>Gender is required</span>
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field [hideRequiredMarker]="true" appearance="outline" class="register-form-field">
+                            <input type="text" matInput formControlName="email" autocomplete="email"
+                                [placeholder]="'email'" required />
+                            <mat-error *ngIf="
+              registerForm.controls.email.invalid &&
+              registerForm.controls.email.touched
+            ">
+                                <span>email is required</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+                            <mat-form-field [hideRequiredMarker]="true" appearance="outline"
+                                class="register-form-field">
+                                <input type="password" matInput formControlName="password"
+                                    autocomplete="current-password" [placeholder]="'Password'" required />
+                                <mat-error *ngIf="
+              registerForm.controls.password.invalid &&
+              registerForm.controls.password.touched
+            ">
+                                    <span>Password is required</span>
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field [hideRequiredMarker]="true" appearance="outline"
+                                class="register-form-field">
+                                <input type="password" matInput formControlName="confirmPassword"
+                                    [placeholder]="'Confirm Password'" required />
+                                <mat-error *ngIf="
+                registerForm.controls.confirmPassword.invalid &&
+                registerForm.controls.confirmPassword.touched
+              ">
+                                    <span>Confirm Password is required</span>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="row">
+                            <input type="checkbox" formControlName="acceptTerms">
+                            I agree to the <a href="#">terms and conditions</a>
+
+                            <span style="float: right"> <a routerLink="/login">Already Member ? Login</a></span>
+                        </div>
+
+                        <!-- <div>
+                            <span> <a routerLink="/login">Already Member ? Login</a></span>
+                        </div> -->
+                        <br />
+                        <button mat-raised-button color="primary" type="submit" class="register-btn"
+                            [disabled]="registerForm.invalid || isLoading">
+                            <span>Register</span>
+                        </button>
+                    </div>
+                </form>
+            </mat-card>
+
+        </div>
+
+    <!-- </div> -->
+</div>

@@ -13,9 +13,14 @@ const homeRoutes: Routes = [
           import('./users/users.module').then((u) => u.UsersModule),
       },
       {
-        path: '',
-        redirectTo: 'users',
+        path: 'about',
+        loadChildren: () =>
+          import('./about/about.module').then((a) => a.AboutModule),
       },
+      {
+        path: '',
+        redirectTo: 'about',
+      }
     ],
   },
 ];

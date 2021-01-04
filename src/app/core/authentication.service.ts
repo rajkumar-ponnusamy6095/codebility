@@ -39,10 +39,11 @@ export class AuthenticationService {
         let userData = {
           email: context.email,
           token: res.jwtToken,
+          role: res.role
         };
         console.log('RES: ', res);
         this.credentialsService.setCredentials(userData, true);
-        return of(res);
+        return res;
       })
     );
   }
@@ -56,6 +57,7 @@ export class AuthenticationService {
     this.credentialsService.setCredentials();
     return of(true);
   }
+
 
   register(data) {
     return this.http.post(`/accounts/register`, data).pipe(map((res: any)=>{

@@ -32,12 +32,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   login() {
     this.isLoading = true;
     this.authenticationService.login(this.loginForm.value).subscribe(
-      (credentials) => {
+      (credentials: any) => {
         console.log('response received: ', credentials);
-        this.router.navigate(
-          [this.route.snapshot.queryParams.redirect || '/'],
-          { replaceUrl: true }
-        );
+        if(credentials.role == 'Admin') {
+          this.router.navigate(['/users'])
+        } else {
+          this.router.navigate(['/about'])
+        }
       },
       (error) => {
         console.log('error received: ', error);

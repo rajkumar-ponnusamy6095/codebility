@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdministrationGuard } from '../core/administration.guard';
 import { HomeComponent } from './home.component';
 
 const homeRoutes: Routes = [
@@ -9,6 +10,7 @@ const homeRoutes: Routes = [
     children: [
       {
         path: 'users',
+        canActivate: [AdministrationGuard],
         loadChildren: () =>
           import('./users/users.module').then((u) => u.UsersModule),
       },

@@ -4,6 +4,7 @@ export interface Credentials {
   // Customize received credentials here
   email: string;
   token: string;
+  role: string;
 }
 
 const credentialsKey = 'admin-credentials';
@@ -59,6 +60,17 @@ export class CredentialsService {
     } else {
       sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);
+    }
+  }
+
+   /**
+   * Checks is the user is a admin user or  application user.
+   * @return True if the user is admin.
+   */
+  isAdmin(): boolean {
+    console.log("this._credentials.role: ",this.credentials.role)
+    if(this._credentials.role == 'Admin') {
+      return true;
     }
   }
 }

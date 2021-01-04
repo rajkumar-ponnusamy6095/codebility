@@ -25,6 +25,7 @@
             routerLink="/users"
             routerLinkActive="active"
             (click)="isMobile && sidenav.close()"
+            *ngIf="role == 'Admin'"
           >
             <span>Users</span>
           </a>

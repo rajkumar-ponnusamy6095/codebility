@@ -13,7 +13,8 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 })
 export class HomeComponent implements OnInit {
   @HostBinding('class') componentCssClass;
-
+  role: string;
+ 
   constructor(
     private router: Router,
     private titleService: Title,
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.onSetTheme('light-theme');
+    this.role = this.credentialsService.credentials.role;
   }
 
   onSetTheme(theme) {
@@ -50,4 +52,5 @@ export class HomeComponent implements OnInit {
   get title(): string {
     return this.titleService.getTitle();
   }
+ 
 }

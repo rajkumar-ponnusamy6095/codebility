@@ -25,6 +25,9 @@
             height="100px"
           />
         </div>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
+          <h1>Login</h1>
+        </div>
       </div>
       <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
         <div class="login-error" [hidden]="!error || isLoading">

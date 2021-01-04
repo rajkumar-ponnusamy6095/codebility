@@ -63,5 +63,23 @@ export class AuthenticationService {
     }))
   }
 
+  forgotPassword(data) {
+    return this.http.post(`/accounts/forgot-password`, data).pipe(map((res: any)=>{
+      return res;
+    }))
+  }
+
+  verifyAccount(data) {
+    return this.http.post(`/accounts/verify-email`, data).pipe(map((res: any)=>{
+      return res;
+    }))
+  }
+
+  resetPassword(data) {
+    return this.http.post(`/accounts/reset-password`, data).pipe(map((res: any)=>{
+      return res;
+    }))
+  }
+
   
 }

@@ -11,6 +11,9 @@
                     <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
                         <img src="../../assets/codebility.jpeg" width="100px" height="100px" />
                     </div>
+                    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
+                        <h1>Registration</h1>
+                      </div>
                 </div>
                 <form (ngSubmit)="register()" [formGroup]="registerForm" novalidate>
                     <div class="register-error" [hidden]="!error || isLoading">

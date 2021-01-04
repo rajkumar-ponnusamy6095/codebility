@@ -20,7 +20,7 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'verify',
+    path: 'account/verify-email',
     component: VerifyComponent,
   },
   {
@@ -28,7 +28,7 @@ const routes: Routes = [
     component: ForgotPasswordComponent,
   },
   {
-    path: 'reset-password',
+    path: 'account/reset-password',
     component: ResetPasswordComponent,
   },
   {

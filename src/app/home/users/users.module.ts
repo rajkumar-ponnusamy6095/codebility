@@ -5,9 +5,10 @@ import { UserRoutingModule } from './users-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/material.module';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
-  declarations: [UsersComponent],
+  declarations: [UsersComponent, EditUserComponent],
   imports: [
     CommonModule,
     MaterialModule,

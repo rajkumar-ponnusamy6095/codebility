@@ -7,6 +7,8 @@ import {
   filter,
 } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 export class PageParams {
   sortBy: string;
@@ -34,7 +36,10 @@ export class UsersComponent implements OnInit {
   pageSizeOptions = [5, 10, 25, 100];
   pageSize = 5;
 
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    public dialog: MatDialog
+    ) {}
 
   ngOnInit(): void {
     this.getUsersList();
@@ -82,5 +87,18 @@ export class UsersComponent implements OnInit {
       this.pageParams.order = e.direction;
     }
     this.getUsersList();
+  }
+
+  getRecord(info) {
+    console.log("info: ",info);
+    let dialogRef = this.dialog.open(EditUserComponent, {
+      data: info,
+      maxWidth: '700px',
+      width: '80vw',
+      disableClose: true,
+      autoFocus: false
+    }).afterClosed().subscribe((val: any)=>{
+      this.getUsersList();
+    });
   }
 }

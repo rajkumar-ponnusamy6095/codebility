@@ -1,18 +1,30 @@
-<div fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1.5rem" class="top-level-container" *ngIf="!loading">
-    <div style="width: 100%;">
-        <mat-toolbar color="primary" class="verify-toolbar"></mat-toolbar>
-    </div>
-    <div class="verify-container" fxLayout="column" fxLayoutAlign="center">
-        <div *ngIf="verified">
-        <p class="verify-text">Your account verified successfully. You can login now.</p>
-        <div style="text-align: center;">
-        <button mat-raised-button color="primary" routerLink="/login">Go to Login Page</button>
-    </div>
+<div
+  fxFill
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="1.5rem"
+  class="top-level-container"
+  *ngIf="!loading"
+>
+  <div style="width: 100%">
+    <mat-toolbar color="primary" class="verify-toolbar"></mat-toolbar>
+  </div>
+  <div class="verify-container" fxLayout="column" fxLayoutAlign="center">
+    <div *ngIf="verified">
+      <p class="verify-text">
+        Your account verified successfully. You can login now.
+      </p>
+      <div style="text-align: center">
+        <button mat-raised-button color="primary" routerLink="/login">
+          Go to Login Page
+        </button>
+      </div>
     </div>
 
     <div *ngIf="!verified">
-        <p class="verify-text">Your account verification failed. Please contact administrator.</p>        
+      <p class="verify-text">
+        Your account verification failed. Please contact administrator.
+      </p>
     </div>
-
-    </div>
+  </div>
 </div>

@@ -48,25 +48,28 @@
         </mat-cell>
       </ng-container>
 
-       <!-- Status Column -->
-       <ng-container matColumnDef="status">
-        <mat-header-cell *matHeaderCellDef>
-          Status
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" [ngClass]="element.isVerified ? 'verified':'pending'">
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell
+          *matCellDef="let element"
+          [ngClass]="element.isVerified ? 'verified' : 'pending'"
+        >
           <span class="mobile-label">Status:</span>
-          {{ element.isVerified ? 'Verified': 'Pending' }}
+          {{ element.isVerified ? "Verified" : "Pending" }}
         </mat-cell>
       </ng-container>
-      
+
       <!-- Action Column -->
       <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef>
-          Action
-        </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
         <mat-cell *matCellDef="let element">
           <span class="mobile-label">Action:</span>
-          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+          >
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
@@ -78,8 +81,8 @@
             <button mat-menu-item (click)="editRecord(element)">
               <mat-icon>edit</mat-icon>
               <span>Edit</span>
-            </button>           
-          </mat-menu>          
+            </button>
+          </mat-menu>
         </mat-cell>
       </ng-container>
 

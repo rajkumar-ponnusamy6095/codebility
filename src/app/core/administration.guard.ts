@@ -25,9 +25,11 @@ export class AdministrationGuard implements CanActivate {
     if (this.credentialsService.isAdmin()) {
       return true;
     }
-    console.log('Not having the access to this module, check is the user is admin or not');
-    if(this.credentialsService.credentials.role == 'User') {
-        this.router.navigate(['/about']);
+    console.log(
+      'Not having the access to this module, check is the user is admin or not'
+    );
+    if (this.credentialsService.credentials.role == 'User') {
+      this.router.navigate(['/about']);
     }
     return false;
   }

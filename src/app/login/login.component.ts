@@ -34,10 +34,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authenticationService.login(this.loginForm.value).subscribe(
       (credentials: any) => {
         console.log('response received: ', credentials);
-        if(credentials.role == 'Admin') {
-          this.router.navigate(['/users'])
+        if (credentials.role == 'Admin') {
+          this.router.navigate(['/users']);
         } else {
-          this.router.navigate(['/about'])
+          this.router.navigate(['/about']);
         }
       },
       (error) => {
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   private createForm() {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]     
+      password: ['', Validators.required],
     });
   }
 }

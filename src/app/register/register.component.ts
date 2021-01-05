@@ -2,17 +2,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
-import { environment } from 'src/environments/environment.prod';
 import { AuthenticationService } from '../core/authentication.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-
-  version: string | null = environment.version;
   error: string | undefined;
   registerForm!: FormGroup;
   isLoading = false;
@@ -31,7 +28,7 @@ export class RegisterComponent implements OnInit {
   ngOnDestroy() {}
 
   register() {
-   // this.isLoading = true;
+    // this.isLoading = true;
     this.authenticationService.register(this.registerForm.value).subscribe(
       (credentials) => {
         console.log('response received: ', credentials);
@@ -42,7 +39,7 @@ export class RegisterComponent implements OnInit {
         this.error = error;
       }
     );
-    console.log("form values: ",this.registerForm.value)
+    console.log('form values: ', this.registerForm.value);
   }
 
   private createForm() {
@@ -53,8 +50,7 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      acceptTerms: ['', Validators.requiredTrue]     
+      acceptTerms: ['', Validators.requiredTrue],
     });
   }
-
 }

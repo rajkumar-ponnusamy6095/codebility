@@ -1,4 +1,3 @@
-
 <div
   fxFill
   fxLayout="column"
@@ -6,8 +5,8 @@
   fxLayoutGap="1.5rem"
   class="top-level-container"
 >
-<div style="width: 100%;">
-  <mat-toolbar color="primary" class="login-toolbar"></mat-toolbar>
+  <div style="width: 100%">
+    <mat-toolbar color="primary" class="login-toolbar"></mat-toolbar>
   </div>
   <div class="login-container" fxLayout="row" fxLayoutAlign="center">
     <mat-card
@@ -35,7 +34,11 @@
         </div>
         <br />
         <div class="login-fields" fxLayout="column">
-          <mat-form-field [hideRequiredMarker]="true" appearance="outline" class="login-form-field">
+          <mat-form-field
+            [hideRequiredMarker]="true"
+            appearance="outline"
+            class="login-form-field"
+          >
             <input
               type="text"
               matInput
@@ -53,7 +56,11 @@
               <span>email is required</span>
             </mat-error>
           </mat-form-field>
-          <mat-form-field [hideRequiredMarker]="true" appearance="outline" class="login-form-field">
+          <mat-form-field
+            [hideRequiredMarker]="true"
+            appearance="outline"
+            class="login-form-field"
+          >
             <input
               type="password"
               matInput
@@ -73,8 +80,10 @@
           </mat-form-field>
           <div>
             <span> <a routerLink="/register">New Member ? Register</a></span>
-            <span style="float: right"><a routerLink="/forgot-password">Forgot Password</a></span>
-          </div>         
+            <span style="float: right"
+              ><a routerLink="/forgot-password">Forgot Password</a></span
+            >
+          </div>
           <br />
           <button
             mat-raised-button

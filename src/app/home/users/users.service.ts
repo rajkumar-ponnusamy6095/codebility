@@ -27,20 +27,26 @@ export class UsersService {
   }
 
   getUserDetails(id) {
-    return this.http.get(`/accounts/${id}`).pipe(map((res: any)=>{
-      return res;
-    }));
+    return this.http.get(`/accounts/${id}`).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 
   updateUserDetails(id, data) {
-    return this.http.put(`/accounts/${id}`, data).pipe(map((res: any)=>{
-      return res;
-    }));
+    return this.http.put(`/accounts/${id}`, data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 
   deleteUser(id) {
-    return this.http.delete(`/accounts/${id}`).pipe(map((res: any)=>{
-      return res;
-    }));
+    return this.http.delete(`/accounts/${id}`).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 }

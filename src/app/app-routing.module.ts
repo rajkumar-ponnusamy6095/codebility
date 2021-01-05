@@ -45,10 +45,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path: '404', component: PageNotFoundComponent},
+  { path: '404', component: PageNotFoundComponent },
   {
     path: '**',
-    redirectTo: '/404'
+    redirectTo: '/404',
   },
 ];
 

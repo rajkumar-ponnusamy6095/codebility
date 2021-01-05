@@ -1,7 +1,7 @@
 :host {
   // display: flex;
   flex: 1;
-  background-color: #f5f5f5;  
+  background-color: #f5f5f5;
 }
 
 .inline-loader {
@@ -35,10 +35,12 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-::ng-deep .login-form-field.mat-form-field-appearance-outline .mat-form-field-infix {
+::ng-deep
+  .login-form-field.mat-form-field-appearance-outline
+  .mat-form-field-infix {
   padding: 0.8em 0 !important;
 }
 
 h1 {
-  color: #3F77BC;
+  color: #3f77bc;
 }

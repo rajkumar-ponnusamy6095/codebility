@@ -14,7 +14,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 export class HomeComponent implements OnInit {
   @HostBinding('class') componentCssClass;
   role: string;
- 
+
   constructor(
     private router: Router,
     private titleService: Title,
@@ -52,5 +52,4 @@ export class HomeComponent implements OnInit {
   get title(): string {
     return this.titleService.getTitle();
   }
- 
 }

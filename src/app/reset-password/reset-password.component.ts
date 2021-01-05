@@ -8,16 +8,14 @@ import { AuthenticationService } from '../core/authentication.service';
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.scss']
+  styleUrls: ['./reset-password.component.scss'],
 })
 export class ResetPasswordComponent implements OnInit {
-
   version: string | null = environment.version;
   error: string | undefined;
   resetPasswordForm!: FormGroup;
   isLoading = false;
   token: string;
-  
 
   constructor(
     private router: Router,
@@ -26,11 +24,11 @@ export class ResetPasswordComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private authenticationService: AuthenticationService
   ) {
-    this.activatedRoute.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe((params) => {
       this.token = params['token'];
-      console.log("params: ",params)
-      console.log(this.token); // Print the parameter to the console. 
-  });
+      console.log('params: ', params);
+      console.log(this.token); // Print the parameter to the console.
+    });
     this.createForm();
   }
 
@@ -43,8 +41,8 @@ export class ResetPasswordComponent implements OnInit {
     let data = {
       token: this.token,
       password: this.resetPasswordForm.value['password'],
-      confirmPassword: this.resetPasswordForm.value['confirmPassword']
-    }
+      confirmPassword: this.resetPasswordForm.value['confirmPassword'],
+    };
     this.authenticationService.resetPassword(data).subscribe(
       (credentials) => {
         console.log('response received: ', credentials);
@@ -63,8 +61,7 @@ export class ResetPasswordComponent implements OnInit {
   private createForm() {
     this.resetPasswordForm = this.formBuilder.group({
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]     
+      confirmPassword: ['', Validators.required],
     });
   }
-
 }

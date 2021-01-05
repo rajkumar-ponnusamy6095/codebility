@@ -39,7 +39,7 @@ export class AuthenticationService {
         let userData = {
           email: context.email,
           token: res.jwtToken,
-          role: res.role
+          role: res.role,
         };
         console.log('RES: ', res);
         this.credentialsService.setCredentials(userData, true);
@@ -58,30 +58,35 @@ export class AuthenticationService {
     return of(true);
   }
 
-
   register(data) {
-    return this.http.post(`/accounts/register`, data).pipe(map((res: any)=>{
-      return res;
-    }))
+    return this.http.post(`/accounts/register`, data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 
   forgotPassword(data) {
-    return this.http.post(`/accounts/forgot-password`, data).pipe(map((res: any)=>{
-      return res;
-    }))
+    return this.http.post(`/accounts/forgot-password`, data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 
   verifyAccount(data) {
-    return this.http.post(`/accounts/verify-email`, data).pipe(map((res: any)=>{
-      return res;
-    }))
+    return this.http.post(`/accounts/verify-email`, data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 
   resetPassword(data) {
-    return this.http.post(`/accounts/reset-password`, data).pipe(map((res: any)=>{
-      return res;
-    }))
+    return this.http.post(`/accounts/reset-password`, data).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
   }
-
-  
 }

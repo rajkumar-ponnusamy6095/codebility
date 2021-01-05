@@ -36,10 +36,7 @@ export class UsersComponent implements OnInit {
   pageSizeOptions = [5, 10, 25, 100];
   pageSize = 5;
 
-  constructor(
-    private usersService: UsersService,
-    public dialog: MatDialog
-    ) {}
+  constructor(private usersService: UsersService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getUsersList();
@@ -90,22 +87,25 @@ export class UsersComponent implements OnInit {
   }
 
   editRecord(info) {
-    console.log("info: ",info);
-    let dialogRef = this.dialog.open(EditUserComponent, {
-      data: info,
-      maxWidth: '700px',
-      width: '80vw',
-      disableClose: true,
-      autoFocus: false
-    }).afterClosed().subscribe((val: any)=>{
-      this.getUsersList();
-    });
+    console.log('info: ', info);
+    let dialogRef = this.dialog
+      .open(EditUserComponent, {
+        data: info,
+        maxWidth: '700px',
+        width: '80vw',
+        disableClose: true,
+        autoFocus: false,
+      })
+      .afterClosed()
+      .subscribe((val: any) => {
+        this.getUsersList();
+      });
   }
 
   deleteRecord(info) {
-    console.log("info: ",info);
-    this.usersService.deleteUser(info.id).subscribe((res: any)=>{
+    console.log('info: ', info);
+    this.usersService.deleteUser(info.id).subscribe((res: any) => {
       this.getUsersList();
-    })
+    });
   }
 }

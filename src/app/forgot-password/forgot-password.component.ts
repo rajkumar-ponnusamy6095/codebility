@@ -8,10 +8,9 @@ import { AuthenticationService } from '../core/authentication.service';
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss']
+  styleUrls: ['./forgot-password.component.scss'],
 })
 export class ForgotPasswordComponent implements OnInit {
-
   version: string | null = environment.version;
   error: string | undefined;
   forgotPasswordForm!: FormGroup;
@@ -32,24 +31,26 @@ export class ForgotPasswordComponent implements OnInit {
 
   forgotPassword() {
     // this.isLoading = true;
-    this.authenticationService.forgotPassword(this.forgotPasswordForm.value).subscribe(
-      (credentials) => {
-        console.log('response received: ', credentials);
-        this.router.navigate(
-          [this.route.snapshot.queryParams.redirect || '/'],
-          { replaceUrl: true }
-        );
-      },
-      (error) => {
-        console.log('error received: ', error);
-        this.error = error;
-      }
-    );
+    this.authenticationService
+      .forgotPassword(this.forgotPasswordForm.value)
+      .subscribe(
+        (credentials) => {
+          console.log('response received: ', credentials);
+          this.router.navigate(
+            [this.route.snapshot.queryParams.redirect || '/'],
+            { replaceUrl: true }
+          );
+        },
+        (error) => {
+          console.log('error received: ', error);
+          this.error = error;
+        }
+      );
   }
 
   private createForm() {
     this.forgotPasswordForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]]          
+      email: ['', [Validators.required, Validators.email]],
     });
   }
 }

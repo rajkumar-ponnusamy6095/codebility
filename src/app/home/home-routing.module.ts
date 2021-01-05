@@ -22,7 +22,7 @@ const homeRoutes: Routes = [
       {
         path: '',
         redirectTo: 'about',
-      }
+      },
     ],
   },
 ];

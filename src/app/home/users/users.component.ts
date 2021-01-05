@@ -31,7 +31,7 @@ export class UsersComponent implements OnInit {
   };
   @ViewChild('userSearchInput', { static: true }) userSearchInput: ElementRef;
   usersList: any[] = [];
-  displayedColumns: string[] = ['name', 'email', 'role'];
+  displayedColumns: string[] = ['name', 'email', 'role', 'status', 'action'];
   totalLength: number = 50;
   pageSizeOptions = [5, 10, 25, 100];
   pageSize = 5;
@@ -89,7 +89,7 @@ export class UsersComponent implements OnInit {
     this.getUsersList();
   }
 
-  getRecord(info) {
+  editRecord(info) {
     console.log("info: ",info);
     let dialogRef = this.dialog.open(EditUserComponent, {
       data: info,
@@ -100,5 +100,12 @@ export class UsersComponent implements OnInit {
     }).afterClosed().subscribe((val: any)=>{
       this.getUsersList();
     });
+  }
+
+  deleteRecord(info) {
+    console.log("info: ",info);
+    this.usersService.deleteUser(info.id).subscribe((res: any)=>{
+      this.getUsersList();
+    })
   }
 }

@@ -37,4 +37,10 @@ export class UsersService {
       return res;
     }));
   }
+
+  deleteUser(id) {
+    return this.http.delete(`/accounts/${id}`).pipe(map((res: any)=>{
+      return res;
+    }));
+  }
 }

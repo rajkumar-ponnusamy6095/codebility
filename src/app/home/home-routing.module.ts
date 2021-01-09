@@ -20,6 +20,11 @@ const homeRoutes: Routes = [
           import('./about/about.module').then((a) => a.AboutModule),
       },
       {
+        path: 'languages',
+        loadChildren: () =>
+          import('./language/language.module').then((l) => l.LanguageModule),
+      },
+      {
         path: '',
         redirectTo: 'about',
       },

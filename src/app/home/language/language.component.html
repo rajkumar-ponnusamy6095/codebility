@@ -1,0 +1,73 @@
+<div class="container">
+    <h2>Languages</h2>
+    <div class="table-container">
+      <div>
+        <mat-form-field appearance="outline">
+          <input #languageSearchInput matInput placeholder="Filter" />
+        </mat-form-field>
+        <div style="float: right">
+          <button mat-raised-button color="primary" (click)="addLanguage()">Add Language</button>
+        </div>
+      </div>
+      <mat-table
+        #table
+        [dataSource]="languagesList"
+        matSort
+        (matSortChange)="sortData($event)"
+      >
+        <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+  
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Name
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">Name:</span>
+            {{ element.name }}
+          </mat-cell>
+        </ng-container>      
+  
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span class="mobile-label">Action:</span>
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="deleteRecord(element)">
+                <mat-icon>delete</mat-icon>
+                <span>Delete</span>
+              </button>
+              <mat-divider></mat-divider>
+              <button mat-menu-item (click)="editRecord(element)">
+                <mat-icon>edit</mat-icon>
+                <span>Edit</span>
+              </button>
+            </mat-menu>
+          </mat-cell>
+        </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+  
+      <!-- Paginator-->
+  
+      <mat-paginator
+        [length]="totalLength"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPageChanged($event)"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+  

@@ -48,6 +48,15 @@
             <span>Languages</span>
           </a>
           <mat-divider></mat-divider>
+          <a
+            mat-list-item
+            routerLink="/directors"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
+            <span>Directors</span>
+          </a>
+          <mat-divider></mat-divider>
         </mat-list>
       </nav>
     </mat-sidenav>

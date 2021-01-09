@@ -1,0 +1,43 @@
+.inline-loader {
+    display: inline-block;
+  }
+  
+  .director-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000;
+    height: 50px;
+  }
+  
+  .version {
+    margin: 0;
+  }
+  
+  .director-container,
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .director-fields > :not(:last-child) {
+    margin-bottom: 8px;
+  }
+  
+  .director-error {
+    color: red;
+  }
+  
+  .director-box {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  ::ng-deep
+    .director-form-field.mat-form-field-appearance-outline
+    .mat-form-field-infix {
+    padding: 0.8em 0 !important;
+  }
+  
+  h1 {
+    color: #3f77bc;
+  }
+  

@@ -25,6 +25,11 @@ const homeRoutes: Routes = [
           import('./language/language.module').then((l) => l.LanguageModule),
       },
       {
+        path: 'directors',
+        loadChildren: () =>
+          import('./director/director.module').then((d) => d.DirectorModule),
+      },
+      {
         path: '',
         redirectTo: 'about',
       },

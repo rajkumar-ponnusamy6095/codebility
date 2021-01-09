@@ -1,0 +1,89 @@
+<div class="director-container">
+    <button
+      mat-icon-button
+      class="close-button"
+      [mat-dialog-close]="true"
+      style="float: right"
+    >
+      <mat-icon class="close-icon">close</mat-icon>
+    </button>
+    <div>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="2rem">
+        <h1>Director Details</h1>
+      </div>
+    </div>
+    <form (ngSubmit)="updateDirector()" [formGroup]="directorForm" novalidate>
+      <div class="director-error" [hidden]="!error || isLoading">
+        email or password incorrect.
+      </div>
+      <br />
+      <div class="director-fields">
+        <div
+          fxLayout="row"
+          fxLayout.lt-md="column"
+          fxLayoutGap="20px"
+          fxLayoutGap.lt-md="0px"
+        >
+          <mat-form-field
+            [hideRequiredMarker]="true"
+            appearance="outline"
+            class="director-form-field"
+          >
+            <input
+              type="text"
+              autocomplete="off"
+              matInput
+              formControlName="firstName"
+              [placeholder]="'Name'"
+              required
+            />
+            <mat-error
+              *ngIf="
+                directorForm.controls.firstName.invalid &&
+                directorForm.controls.firstName.touched
+              "
+            >
+              <span>Name is required</span>
+            </mat-error>
+          </mat-form-field>    
+          
+          <mat-form-field
+          [hideRequiredMarker]="true"
+          appearance="outline"
+          class="director-form-field"
+        >
+          <input
+            type="text"
+            autocomplete="off"
+            matInput
+            formControlName="lastName"
+            [placeholder]="'Last Name'"
+            required
+          />
+          <mat-error
+            *ngIf="
+            directorForm.controls.lastName.invalid &&
+            directorForm.controls.lastName.touched
+            "
+          >
+            <span>Last Name is required</span>
+          </mat-error>
+        </mat-form-field>
+        </div>      
+  
+        <br />
+        <div style="text-align: center">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            class="director-btn"
+            [disabled]="directorForm.invalid || isLoading"
+          >
+            <span>Update</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

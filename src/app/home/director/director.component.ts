@@ -14,7 +14,7 @@ export class PageParams {
   sortBy: string;
   order: string;
   limit: number;
-  page: number;
+  skip: number;
   search: string;
   filter: string;
 }
@@ -27,13 +27,13 @@ export class PageParams {
 export class DirectorComponent implements OnInit {
 
   pageParams: Partial<PageParams> = {
-    page: 1,
+    skip: 0,
     limit: 5,
   };
   @ViewChild('directorSearchInput', { static: true }) directorSearchInput: ElementRef;
   directorsList: any[] = [];
   displayedColumns: string[] = ['firstName', 'lastName', 'action'];
-  totalLength: number = 50;
+  totalLength: number;
   pageSizeOptions = [5, 10, 25, 100];
   pageSize = 5;
 
@@ -63,14 +63,15 @@ export class DirectorComponent implements OnInit {
 
   getDirectorsList() {
     this.dirService.getDirectorList(this.pageParams).subscribe((res: any) => {
-      this.directorsList = res;
+      this.directorsList = res.rows;
+      this.totalLength = res.total;
       console.log('directorsList: ', this.directorsList);
     });
   }
 
   onPageChanged(e) {
     console.log('e: ', e);
-    this.pageParams.page = e.pageIndex + 1;
+    this.pageParams.skip = (e.pageIndex)*e.pageSize;
     this.pageParams.limit = e.pageSize;
     this.getDirectorsList();
   }
